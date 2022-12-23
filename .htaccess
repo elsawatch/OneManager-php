@@ -1,9 +1,14 @@
 # # Apache
 # # LoadModule rewrite_module modules/mod_rewrite.so
 # # AllowOverride All
-RewriteEngine On
+# RewriteEngine On
 # RewriteCond $1 !^(.well-known)
-RewriteRule ^(.*) index.php?/$1 [L]
+# RewriteRule ^(.*) index.php?/$1 [L]
+
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteRule ^(.*) index.php?/$1 [L]
+</IfModule>
 
 ###-----------------------------------
 ### nginx
